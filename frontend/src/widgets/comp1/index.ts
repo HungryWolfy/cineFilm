@@ -1,0 +1,1 @@
+export {default} from './comp1.tsx'
