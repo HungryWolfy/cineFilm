@@ -17,6 +17,7 @@ export default defineConfig({
         @use "@/shared/styles/_variables.scss" as *;
         @use "@/shared/styles/_mixins.scss" as *;
         @use "@/shared/styles/_media.scss" as *;
+        @use "@/shared/styles/_utils.scss" as *;
         `,
       }
     }

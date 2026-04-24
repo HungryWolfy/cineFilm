@@ -1,0 +1,21 @@
+@use 'constans' as *;
+
+:root {
+  --color-white: #FFFFFF;
+  --color-blue: #2ABCBC;
+  --color-purple: #7700FF;
+  --color-purple-70: rgba(119, 0, 255, 70%);
+  --color-yellow: #E7DF31;
+  --color-dark-100: #111111;;
+
+  --border-radius-m: 100px;
+  --border-radius: 15px;
+
+  --font-family-base: 'Open Sans';
+  --font-family-accent: 'Orbitron';
+
+  --container-width: #{$container-desktop-width}px;
+  --container-padding-x: #{$container-padding-x}px;
+
+  --transition-duration: 0.2s;
+}
