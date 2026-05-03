@@ -1,4 +1,12 @@
 from pathlib import Path
+import os
+
+from dotenv import load_dotenv
+
+load_dotenv()
+
+TMDB_API_KEY = os.getenv('TMDB_API_KEY')
+TMDB_LANGUAGE = os.getenv('TMDB_LANGUAGE', 'en-US')
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -16,7 +24,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'corsheaders',
-    'rest_framework'
+    'rest_framework',
+    'movies'
 ]
 
 MIDDLEWARE = [
