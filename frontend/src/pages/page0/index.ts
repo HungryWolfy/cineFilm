@@ -1,0 +1,1 @@
+export {default} from './page0.tsx'

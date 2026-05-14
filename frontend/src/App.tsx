@@ -1,10 +1,16 @@
+import Providers from "./app/providers";
+import AppRouter from "./app/Router/AppRouter.tsx";
+import {Link} from "react-router-dom";
+
 
 function App() {
   return (
-    <div className={'container'}>
-      <h1 className={'h1'}>Main title</h1>
-      <a href="" className={'link'}>Я ссылка</a>
-    </div>
+    <Providers>
+      <div className="app">
+        <AppRouter />
+        <Link to="/catalog">Catalog</Link>
+      </div>
+    </Providers>
   )
 }
 

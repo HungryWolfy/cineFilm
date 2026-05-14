@@ -1,0 +1,18 @@
+.movieLink {
+  display: flex;
+  flex-direction: column;
+}
+
+.movieImg {
+  border-radius: var(--border-radius);
+  margin-bottom: 8px;
+}
+
+.movieTitle {
+  color: var(--color-blue);
+  margin-bottom: 4px;
+}
+
+.movieInfo {
+  font-size: 14px;
+}
