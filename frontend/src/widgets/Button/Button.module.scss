@@ -1,0 +1,17 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-block: 15px;
+  padding-inline: 49px;
+  border-radius: 100px;
+  border: none;
+  background: var(--linear-gradien);
+  color: var(--color-white);
+
+  font-size: 14px;
+  font-family: var(--font-family-accent);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  line-height: 100%;
+}

@@ -2,17 +2,20 @@
 
 :root {
   --color-white: #FFFFFF;
+  --color-white-70: rgba(255, 255, 255, 70%);
+  --color-white-50: rgba(255, 255, 255, 50%);
   --color-blue: #2ABCBC;
   --color-purple: #7700FF;
   --color-purple-70: rgba(119, 0, 255, 70%);
   --color-yellow: #E7DF31;
   --color-dark-100: #111111;;
+  --linear-gradien: linear-gradient(135deg, #7700ff 0%, #2abcbc 84%);
 
   --border-radius-m: 100px;
   --border-radius: 15px;
 
-  --font-family-base: 'Open Sans';
-  --font-family-accent: 'Orbitron';
+  --font-family-base: 'Open Sans', sans-serif;
+  --font-family-accent: 'Orbitron', sans-serif;
 
   --container-width: #{$container-desktop-width}px;
   --container-padding-x: #{$container-padding-x}px;

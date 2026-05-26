@@ -1,14 +1,15 @@
 import {Routes, Route} from "react-router-dom";
-import Catalog from "../../pages/Catalog";
-import Page0 from "../../pages/page0";
-import MovieInfo from "../../entities/movie/ui/MovieInfo.tsx";
+import Catalog from "@/pages/Catalog";
+import MovieInfo from "@/entities/movie/ui/MovieInfo.tsx";
+import Home from "@/pages/Home";
+import Register from "@/pages/register";
 
 function AppRouter() {
   return (
     <Routes>
       <Route
         path="/"
-        element={<Page0 />}
+        element={<Home/>}
       />
       <Route
         path="/catalog"
@@ -17,6 +18,10 @@ function AppRouter() {
       <Route
         path="/movie/:id"
         element={<MovieInfo />}
+      />
+      <Route
+      path="/register"
+      element={<Register/>}
       />
     </Routes>
   )

@@ -13,7 +13,10 @@ const MovieCard = ({movie}: Props) => {
 
   return (
     <>
-      <Link to={`/movie/${movie.id}`} className={styles.movieLink}>
+      <Link
+        to={`/movie/${movie.id}`}
+        className={styles.movieLink}
+      >
         <img
           src={movie.poster_url}
           alt="movie"
@@ -25,11 +28,10 @@ const MovieCard = ({movie}: Props) => {
 
         <div className={styles.movieBody}>
           <h5 className={styles.movieTitle}>{movie.title}</h5>
-          <p className={styles.movieInfo}>
-            {
-              `${movie.year}, ${genresText}`
-            }
-          </p>
+          <div className={styles.movieInfo}>
+            <span className={styles.movieYear}>{`${movie.year}, `}</span>
+            <span className={styles.movieGenres}>{genresText}</span>
+          </div>
         </div>
       </Link>
     </>

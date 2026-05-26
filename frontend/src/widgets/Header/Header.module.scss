@@ -1,0 +1,52 @@
+.header {
+  margin-block: 30px;
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menu {
+
+}
+
+.list {
+  display: flex;
+  column-gap: 60px;
+  align-items: center;
+}
+
+.item {
+  font-size: 15px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  column-gap: 30px;
+}
+
+.searchButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-white);
+  background-color: transparent;
+  border: none;
+}
+
+.profileLink {
+  width: 56px;
+  height: 56px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 11px;
+  border: 1px solid transparent;
+  background:
+    linear-gradient(#111111, #111111) padding-box,
+    var(--linear-gradien) border-box;
+  border-radius: 50%;
+}

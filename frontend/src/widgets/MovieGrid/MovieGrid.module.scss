@@ -1,8 +1,25 @@
+.gridContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.gridBody {
+  display: flex;
+  align-items: center;
+}
+
 .movieItem {
+  max-width: 200px;
 }
 
 .moviesGrid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   column-gap: 93px;
+}
+
+.button {
+  background-color: transparent;
+  border: none;
+  color: var(--color-blue);
 }
