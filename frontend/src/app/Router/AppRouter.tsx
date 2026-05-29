@@ -2,7 +2,7 @@ import {Routes, Route} from "react-router-dom";
 import Catalog from "@/pages/Catalog";
 import MovieInfo from "@/entities/movie/ui/MovieInfo.tsx";
 import Home from "@/pages/Home";
-import Register from "@/pages/register";
+import Register from "@/pages/Register";
 
 function AppRouter() {
   return (

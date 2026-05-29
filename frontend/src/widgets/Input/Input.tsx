@@ -1,14 +1,17 @@
 import styles from './Input.module.scss'
+import type {ChangeEvent} from "react";
 
 type InputProps = {
   className?: string,
   type?: string,
   placeholder?: string,
-  required?: boolean
+  required?: boolean,
+  value?: string,
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void
 }
 
 const Input = (props: InputProps) => {
-  const {type, placeholder, className, required} = props
+  const {type, placeholder, className, required, ...rest} = props
 
   return (
     <>
@@ -18,6 +21,7 @@ const Input = (props: InputProps) => {
           type={type}
           placeholder={placeholder}
           required={required}
+          {...rest}
         />
       </div>
     </>

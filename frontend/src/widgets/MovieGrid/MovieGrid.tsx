@@ -49,10 +49,7 @@ const MovieGrid = (props: MovieGridProps) => {
             })
           }
         </ul>
-        <button
-          className={styles.button}
-          type={"button"}
-          onClick={handleNext}
+        <button className={styles.button} type={"button"} onClick={handleNext}
         >
           <ArrowRight />
         </button>

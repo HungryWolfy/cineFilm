@@ -1,6 +1,8 @@
 from pathlib import Path
 import os
 
+from django.conf.global_settings import EMAIL_BACKEND, DEFAULT_FROM_EMAIL, \
+    EMAIL_HOST, EMAIL_USE_TLS, EMAIL_HOST_USER, EMAIL_HOST_PASSWORD
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -10,7 +12,15 @@ TMDB_LANGUAGE = os.getenv('TMDB_LANGUAGE', 'en-US')
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-e%8orhfafckabcg=++55fm6=pfq*@t(m_v9e%%buo3n31i@*#p'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+DEFAULT_FROM_EMAIL = f'cineFilm <{EMAIL_HOST_USER}>'
+
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 DEBUG = True
 
@@ -27,6 +37,11 @@ INSTALLED_APPS = [
     'rest_framework',
     'movies'
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 15,
+}
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
@@ -46,6 +61,8 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:5174",
     "http://127.0.0.1:5174"
 ]
+
+CORS_ALLOWED_ALL_ORIGINS = True  # Разрешает все домены (только для разработки)
 
 ROOT_URLCONF = 'core.urls'
 
