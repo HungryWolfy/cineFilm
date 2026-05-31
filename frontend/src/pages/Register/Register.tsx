@@ -13,6 +13,7 @@ type RegisterResponse = {
 }
 
 const Register = () => {
+  const [login, setLogin] = useState('');
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [message, setMessage] = useState('')
@@ -24,7 +25,7 @@ const Register = () => {
     try {
       const res =
         await axios.post<RegisterResponse>(`${import.meta.env.VITE_API_URL}/api/register/`,
-          {email, password},
+          {login, email, password},
           {headers: {"Content-Type": "application/json"}}
         )
 
@@ -56,6 +57,12 @@ const Register = () => {
           onSubmit={handleSubmit}
         >
           <div className={styles.formBody}>
+            <Input
+              type="text"
+              placeholder="Login"
+              required={true}
+              onChange={(e) => setLogin(e.target.value)}
+            />
             <Input
               type="email"
               placeholder="E-mail"
