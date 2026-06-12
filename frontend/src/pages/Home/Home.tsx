@@ -1,14 +1,12 @@
 import Header from "@/widgets/Header/Header";
 import Hero from "@/widgets/Hero";
 
-const isAuth = false
-
 const Home = () => {
   return (
     <>
-      <Header isAuth={isAuth} />
+      <Header />
       <main className="main">
-        <Hero/>
+        <Hero />
       </main>
     </>
   )

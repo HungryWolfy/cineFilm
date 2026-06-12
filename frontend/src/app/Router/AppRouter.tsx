@@ -3,13 +3,15 @@ import Catalog from "@/pages/Catalog";
 import MovieInfo from "@/entities/movie/ui/MovieInfo.tsx";
 import Home from "@/pages/Home";
 import Register from "@/pages/Register";
+import Login from "@/pages/Login";
+import Profile from "@/pages/Profile";
 
 function AppRouter() {
   return (
     <Routes>
       <Route
         path="/"
-        element={<Home/>}
+        element={<Home />}
       />
       <Route
         path="/catalog"
@@ -20,8 +22,16 @@ function AppRouter() {
         element={<MovieInfo />}
       />
       <Route
-      path="/register"
-      element={<Register/>}
+        path="/register"
+        element={<Register />}
+      />
+      <Route
+        path={'/login'}
+        element={<Login />}
+      />
+      <Route
+        path={'/profile'}
+        element={<Profile />}
       />
     </Routes>
   )

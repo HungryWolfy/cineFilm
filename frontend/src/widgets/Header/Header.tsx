@@ -1,15 +1,18 @@
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import Button from "@/widgets/Button";
 import Logo from "@/shared/ui/Logo";
 import SearchIcon from '@/shared/assets/icons/header/search.svg?react'
 import UserDefaultIcon from '@/shared/assets/icons/user-default.svg?react'
 import styles from './Header.module.scss'
+import useAuth from "@/shared/hooks/useAuth.ts";
 
-type Props = {
-  isAuth: boolean
-}
+function Header() {
+  const navigate = useNavigate()
+  const {user, loading} = useAuth()
 
-function Header({isAuth}: Props) {
+  console.log(user)
+  console.log(loading)
+
   return (
     <header className={`${styles.header} container`}>
       <div className={styles.inner}>
@@ -44,7 +47,7 @@ function Header({isAuth}: Props) {
           </ul>
         </nav>
         <div className={styles.actions}>
-          {isAuth
+          {user !== null
             ? (
               <>
                 <button
@@ -69,7 +72,7 @@ function Header({isAuth}: Props) {
                 </Link>
               </>
             )
-            : (<Button>Log in</Button>)
+            : (<Button onClick={() => navigate('/login')}>Log in</Button>)
           }
         </div>
       </div>

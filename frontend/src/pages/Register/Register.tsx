@@ -1,6 +1,5 @@
 import * as React from "react";
 import {useState} from "react";
-import axios from 'axios';
 import Input from "@/widgets/Input";
 import Button from "@/widgets/Button";
 import Checkbox from "@/widgets/Checkbox";
@@ -18,29 +17,34 @@ const Register = () => {
   const [password, setPassword] = useState('')
   const [message, setMessage] = useState('')
 
+  const url = import.meta.env.VITE_API_URL
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     setMessage('')
 
     try {
-      const res =
-        await axios.post<RegisterResponse>(`${import.meta.env.VITE_API_URL}/api/register/`,
-          {login, email, password},
-          {headers: {"Content-Type": "application/json"}}
-        )
+      const response = await fetch(`${url}/api/register/`, {
+        method: 'POST',
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({login, email, password}),
+      })
 
-      if (res.data.success) {
-        setMessage(res.data.message || 'Registration successful');
+      const data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(data.error)
+      }
+      console.log(data)
+
+      if (data.success) {
+        setMessage('Register success')
       } else {
-        setMessage(res.data.error || 'Registration failed');
+        setMessage('Register failed')
       }
 
-    } catch (err: any) {
-      if (err.response?.data?.error) {
-        setMessage(err.response.data.error)
-      } else {
-        setMessage('Error. Try again')
-      }
+    } catch (error: any) {
+      setMessage(error.message)
     }
   }
 

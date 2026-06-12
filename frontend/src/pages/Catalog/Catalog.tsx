@@ -5,6 +5,7 @@ import type {Movie} from "@/entities/movie/model/types.ts";
 import MovieGrid from "@/widgets/MovieGrid/MovieGrid.tsx";
 import Header from "@/widgets/Header";
 
+
 const Catalog = () => {
 
   const [movies, setMovies] = useState<Movie[]>([])
@@ -29,9 +30,9 @@ const Catalog = () => {
 
   return (
     <div>
-      <Header isAuth={true} />
+      <Header />
       <h1>Catalog</h1>
-      <MovieGrid movies={movies} title={'New'}/>
+      <MovieGrid movies={movies} title={'New'} />
     </div>
   )
 }
