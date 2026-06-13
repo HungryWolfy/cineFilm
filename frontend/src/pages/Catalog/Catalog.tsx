@@ -26,8 +26,6 @@ const Catalog = () => {
       })
   }, [])
 
-  // console.log(movies)
-
   return (
     <div>
       <Header />

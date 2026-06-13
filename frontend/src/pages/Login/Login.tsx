@@ -4,11 +4,15 @@ import styles from "@/pages/Login/Login.module.scss";
 import {useState} from "react";
 import * as React from "react";
 import Header from "@/widgets/Header";
+import useAuth from "@/shared/hooks/useAuth.ts";
+import {useNavigate} from "react-router-dom";
 
 
 const Login = () => {
+  const navigate = useNavigate()
   const [login, setLogin] = useState('')
   const [password, setPassword] = useState('')
+  const {fetchMe} = useAuth()
 
   const url = import.meta.env.VITE_API_URL
 
@@ -28,6 +32,10 @@ const Login = () => {
       if (!response.ok) {
         throw new Error(data.error)
       }
+
+      await fetchMe()
+
+      navigate('/profile')
     } catch (error) {
       console.error(error)
     }
@@ -35,7 +43,7 @@ const Login = () => {
 
   return (
     <>
-      <Header/>
+      <Header />
       <section className={`${styles.login} container`}>
         <div className={styles.loginBody}>
           <h1 className={`${styles.title} title-primary`}>

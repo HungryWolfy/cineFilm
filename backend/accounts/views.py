@@ -94,10 +94,15 @@ def login_api(request):
   login = serializer.validated_data['login']
   password = serializer.validated_data['password']
 
+  print(login)
+  print(password)
+
   user = authenticate(
     username=login,
     password=password
   )
+
+  print(user)
 
   if user is None:
     return Response(
@@ -130,9 +135,10 @@ def login_api(request):
 
   return response
 
+
 @api_view(['POST'])
 def logout_api(request):
-  response = Response ({
+  response = Response({
     'success': True,
   })
 
@@ -147,6 +153,30 @@ def logout_api(request):
   return response
 
 
+@api_view(['POST'])
+def refresh_api(request):
+  refresh_token = request.COOKIES.get('refresh_token')
+
+  if not refresh_token:
+    return Response(status=401)
+
+  try:
+    refresh = RefreshToken(refresh_token)
+
+    response = Response({
+      'success': True
+    })
+
+    response.set_cookie(
+      'access_token',
+      str(refresh.access_token),
+      httponly=True,
+    )
+
+    return response
+
+  except Exception:
+    return Response(status=401)
 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])

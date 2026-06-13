@@ -5,11 +5,11 @@ import Button from "@/widgets/Button";
 import Checkbox from "@/widgets/Checkbox";
 import styles from './Register.module.scss'
 
-type RegisterResponse = {
-  success: boolean,
-  message?: string,
-  error?: string,
-}
+// type RegisterResponse = {
+//   success: boolean,
+//   message?: string,
+//   error?: string,
+// }
 
 const Register = () => {
   const [login, setLogin] = useState('');
@@ -35,7 +35,6 @@ const Register = () => {
       if (!response.ok) {
         throw new Error(data.error)
       }
-      console.log(data)
 
       if (data.success) {
         setMessage('Register success')

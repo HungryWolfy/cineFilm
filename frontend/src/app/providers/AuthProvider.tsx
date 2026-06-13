@@ -7,13 +7,36 @@ const AuthProvider = ({children}: PropsWithChildren) => {
 
   const url = import.meta.env.VITE_API_URL
 
+  const refreshToken = async () => {
+    const response = await fetch(`${url}/api/refresh/`, {
+      method: "POST",
+      credentials: "include",
+    })
+
+    return response.ok
+  }
+
   const fetchMe = async () => {
     try {
-      const response = await fetch(`${url}/api/me/`, {
+      let response = await fetch(`${url}/api/me/`, {
         credentials: "include",
       })
 
-      if (!response.ok) {
+      if(response.status === 401) {
+        const refreshed = await refreshToken()
+
+        if(!refreshed) {
+          setUser(null)
+          setLoading(false)
+          return
+        }
+
+        response = await fetch(`${url}/api/me/`, {
+          credentials: "include",
+        })
+      }
+
+      if(!response.ok) {
         setUser(null)
         setLoading(false)
         return
@@ -32,17 +55,12 @@ const AuthProvider = ({children}: PropsWithChildren) => {
 
   const logout = async () => {
     try {
-      const response = await fetch(`${url}/api/logout/`, {
+      await fetch(`${url}/api/logout/`, {
         method: 'POST',
         credentials: "include",
       })
 
-      if (!response.ok) {
-        throw new Error("Logout failed")
-      }
-
       setUser(null)
-      setLoading(false)
     } catch (error) {
       console.error(error)
     }
@@ -50,7 +68,7 @@ const AuthProvider = ({children}: PropsWithChildren) => {
 
   useEffect(() => {
     fetchMe()
-  }, [url])
+  }, [])
 
   const value = {
     user: user,

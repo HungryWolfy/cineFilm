@@ -8,10 +8,7 @@ import useAuth from "@/shared/hooks/useAuth.ts";
 
 function Header() {
   const navigate = useNavigate()
-  const {user, loading} = useAuth()
-
-  console.log(user)
-  console.log(loading)
+  const {user} = useAuth()
 
   return (
     <header className={`${styles.header} container`}>

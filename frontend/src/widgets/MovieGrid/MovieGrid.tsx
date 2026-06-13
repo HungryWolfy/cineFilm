@@ -12,15 +12,12 @@ type MovieGridProps = {
 const MovieGrid = (props: MovieGridProps) => {
   const {movies, title} = props
 
-  // console.log(movies)
   const [page, setPage] = useState(0)
 
   const perPage = 5
   const totalPages = Math.ceil(movies.length / perPage)
   const visibleMovies = movies
     .slice(page * perPage, page * perPage + perPage)
-  // console.log(visibleMovies)
-
 
   const handleNext = () => {
     setPage((prevPage) => {
@@ -49,7 +46,8 @@ const MovieGrid = (props: MovieGridProps) => {
             })
           }
         </ul>
-        <button className={styles.button} type={"button"} onClick={handleNext}
+        <button
+          className={styles.button} type={"button"} onClick={handleNext}
         >
           <ArrowRight />
         </button>
