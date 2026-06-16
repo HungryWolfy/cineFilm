@@ -1,0 +1,25 @@
+.section {
+  position: relative;
+  padding-block: 30px;
+}
+
+
+%gradientLine {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--linear-gradien);
+}
+
+
+.hasTopLine::before {
+  @extend %gradientLine;
+  top: 0;
+}
+
+.hasBottomLine::after {
+  @extend %gradientLine;
+  bottom: 0;
+}

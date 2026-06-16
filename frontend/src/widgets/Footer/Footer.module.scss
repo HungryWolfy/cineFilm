@@ -1,0 +1,48 @@
+.footer {
+  padding-block: 80px;
+}
+
+.title {
+  margin-bottom: 26px;
+}
+
+.footerInner {
+  display: flex;
+  justify-content: space-between;
+}
+
+.listStyle {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  row-gap: 15px;
+}
+
+.socialMediaList {
+  flex-direction: row;
+  column-gap: 15px;
+}
+
+.mailSupport {
+  margin-bottom: 10px;
+}
+
+
+.subtitleSupport {
+  margin-bottom: 10px;
+}
+
+.inputSupport {
+  border: 1px solid var(--color-blue);
+  border-radius: 100px;
+  background: transparent;
+  padding: 10px;
+  width: 250px;
+  height: 35px;
+  font-size: 14px;
+  color: var(--color-white);
+
+  &::placeholder {
+    color: var(--color-white-50)
+  }
+}

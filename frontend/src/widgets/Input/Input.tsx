@@ -1,5 +1,6 @@
-import styles from './Input.module.scss'
 import type {ChangeEvent} from "react";
+import styles from './Input.module.scss'
+
 
 type InputProps = {
   className?: string,

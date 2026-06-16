@@ -1,0 +1,184 @@
+// Header
+
+.userContainer {
+  margin-block: 30px;
+}
+
+.userBody {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  column-gap: 30px;
+}
+
+.userAvatar {
+  @include square(200px);
+  @include flex-center();
+
+  position: relative;
+  cursor: pointer;
+  background: #7700ff;
+  border-radius: 50%;
+}
+
+.overlay {
+  @include flex-center();
+  
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition-duration: var(--transition-duration);
+
+  background: rgba(0,0,0,.6);
+  border-radius: 50%;
+}
+
+.userAvatar:hover .overlay {
+  opacity: 1;
+}
+
+.username {
+
+}
+
+.menuAction {
+
+}
+
+.actionList {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+}
+
+.actionItem {
+  display: flex;
+  align-items: center;
+}
+
+.actionLink {
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+}
+
+.actionIcon {
+  display: flex;
+  align-items: center;
+  color: var(--color-blue);
+}
+
+// Subscription and payment
+
+.titleBilling {
+  color: var(--color-blue);
+  margin-bottom: 15px;
+}
+
+.billingContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mainDetailsList {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+}
+
+.detailsItem {
+
+}
+
+.detailsItemData {
+
+}
+
+.subtitleDetails {
+  margin-bottom: 5px;
+}
+
+.actionButton {
+  background: transparent;
+  border: none;
+  color: var(--color-white);
+  padding: 0;
+  margin: 0;
+
+  &:hover {
+    color: var(--color-blue);
+  }
+}
+
+.extraActionList {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+}
+
+// Plan conditions
+
+.titlePlan {
+  margin-bottom: 15px;
+  color: var(--color-blue);
+}
+
+.planContent {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.planName {
+
+}
+
+.featuresList {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+}
+
+.featuresItem {
+
+}
+
+.supportTitle {
+
+}
+
+.supportContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.plus {
+  @include square(24px);
+  @include flex-center;
+
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 1px;
+    background: var(--color-purple);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 1px;
+    background: var(--color-purple);
+    rotate: 90deg;
+  }
+}

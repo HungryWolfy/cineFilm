@@ -1,11 +1,10 @@
 import Input from "@/widgets/Input";
 import Button from "@/widgets/Button";
-import styles from "@/pages/Login/Login.module.scss";
 import {useState} from "react";
 import * as React from "react";
-import Header from "@/widgets/Header";
 import useAuth from "@/shared/hooks/useAuth.ts";
 import {useNavigate} from "react-router-dom";
+import styles from "@/pages/Login/Login.module.scss";
 
 
 const Login = () => {
@@ -43,7 +42,6 @@ const Login = () => {
 
   return (
     <>
-      <Header />
       <section className={`${styles.login} container`}>
         <div className={styles.loginBody}>
           <h1 className={`${styles.title} title-primary`}>

@@ -11,7 +11,7 @@
   Убираем внутренние отступы слева тегам списков,
   у которых есть атрибут class
  */
-:where(ul, ol):where([class]) {
+:where(ul, ol) {
   padding-left: 0;
 }
 
@@ -20,7 +20,7 @@
   у которых есть атрибут class
  */
 body,
-:where(blockquote, figure, fieldset):where([class]) {
+:where(blockquote, figure, fieldset) {
   margin: 0;
 }
 
@@ -39,7 +39,7 @@ body,
   ul,
   ol,
   dl
-):where([class]) {
+) {
   margin-block: 0;
 }
 

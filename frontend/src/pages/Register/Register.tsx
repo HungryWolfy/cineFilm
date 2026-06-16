@@ -4,6 +4,7 @@ import Input from "@/widgets/Input";
 import Button from "@/widgets/Button";
 import Checkbox from "@/widgets/Checkbox";
 import styles from './Register.module.scss'
+import {useNavigate} from "react-router-dom";
 
 // type RegisterResponse = {
 //   success: boolean,
@@ -12,7 +13,8 @@ import styles from './Register.module.scss'
 // }
 
 const Register = () => {
-  const [login, setLogin] = useState('');
+  const navigate = useNavigate()
+  const [login, setLogin] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [message, setMessage] = useState('')
@@ -41,6 +43,11 @@ const Register = () => {
       } else {
         setMessage('Register failed')
       }
+
+      if (data.success) {
+        navigate('/login')
+      }
+
 
     } catch (error: any) {
       setMessage(error.message)
