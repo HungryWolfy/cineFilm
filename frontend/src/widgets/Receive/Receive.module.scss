@@ -1,0 +1,33 @@
+.receive {}
+
+.main {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.title {
+  margin-bottom: 25px;
+  font-family: var(--font-family-accent);
+}
+
+.receiveList {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+}
+
+.receiveItem {
+  display: flex;
+  align-items: flex-start;
+  column-gap: 10px;
+
+  &::before {
+    content: "";
+    @include square(5px);
+    background: var(--color-blue);
+    border-radius: 100px;
+    flex-shrink: 0;
+    margin-top: 8px;
+  }
+}

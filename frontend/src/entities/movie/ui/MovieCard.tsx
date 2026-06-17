@@ -1,6 +1,7 @@
-import styles from './MovieCard.module.scss'
 import {Link} from "react-router-dom";
 import type {Movie} from "../model/types.ts";
+import styles from './MovieCard.module.scss'
+
 
 type Props = {
   movie: Movie

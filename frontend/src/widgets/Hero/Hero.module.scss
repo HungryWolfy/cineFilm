@@ -7,6 +7,7 @@
   width: 100%;
   min-width: 100%;
   background-image: url("@/shared/assets/images/hero/bg.png");
+  margin-bottom: 100px;
 
   &::before {
     content: "";
@@ -57,9 +58,8 @@
   border-radius: 100px;
   padding: 1px;
   background: var(--linear-gradien);
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box,
+  linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   pointer-events: none;
@@ -97,4 +97,58 @@
   padding-inline: 26px;
   border-radius: 0 100px 100px 200px;
   z-index: 100;
+}
+
+// user auth
+
+.userAuthContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.movieInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 668px;
+}
+
+
+.movieName {
+  margin-bottom: 5px;
+}
+
+
+.movieRating {
+  margin-bottom: 20px;
+}
+
+.movieDescription {
+  margin-bottom: 30px;
+}
+
+.movieGenre {
+  margin-bottom: 20px;
+}
+
+.movieDuration {
+  margin-bottom: 20px;
+}
+
+.startWatchingButton {
+  padding-block: 14px;
+  padding-inline: 27px;
+}
+
+.linkMovie {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: 20px;
+}
+
+.startStopLink {
+  color: var(--color-blue);
 }

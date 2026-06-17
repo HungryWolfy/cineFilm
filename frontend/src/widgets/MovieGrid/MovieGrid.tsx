@@ -30,7 +30,7 @@ const MovieGrid = (props: MovieGridProps) => {
   }
 
   return (
-    <div className={`${styles.gridContainer} container`}>
+    <div className={styles.gridContainer}>
       <h2 className={styles.title}>{title}</h2>
 
       <div className={styles.gridBody}>

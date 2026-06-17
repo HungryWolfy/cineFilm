@@ -1,0 +1,34 @@
+.title {
+  margin-bottom: 15px;
+  font-family: var(--font-family-accent);
+}
+
+.receiveContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.plus {
+  @include square(24px);
+  @include flex-center;
+
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 1px;
+    background: var(--color-purple);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 1px;
+    background: var(--color-purple);
+    rotate: 90deg;
+  }
+}

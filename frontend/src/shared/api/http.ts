@@ -1,10 +1,10 @@
-export async function fetchJson(url: string, options?: RequestInit) {
-  const res = await fetch(`${url}`, options)
+export async function fetchJson<T = any>(url: string, options?: RequestInit): Promise<T> {
+  const res = await fetch(url, options);
 
   if (!res.ok) {
-    throw new Error(`HTTP ${res.status}`)
+    throw new Error(`HTTP ${res.status}: ${res.statusText}`);
   }
 
-  const data = await res.json()
-  return data
+  // Принудительно кастим результат к типу T
+  return res.json() as Promise<T>;
 }

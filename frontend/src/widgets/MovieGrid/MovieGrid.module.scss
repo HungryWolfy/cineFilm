@@ -1,11 +1,17 @@
 .gridContainer {
   display: flex;
   flex-direction: column;
+  margin-bottom: 60px;
+}
+
+.title {
+  margin-bottom: 20px;
 }
 
 .gridBody {
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 .movieItem {

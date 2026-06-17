@@ -1,13 +1,10 @@
 from django.contrib.auth import authenticate
-from rest_framework import response
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import permission_classes
-
 from rest_framework_simplejwt.tokens import RefreshToken
-
 from .serializers import (
   LoginSerializer,
-  MeSerializer
+  MeSerializer, ProfileSerializer
 )
 from django.core.mail import send_mail
 from django.conf import settings
@@ -178,10 +175,33 @@ def refresh_api(request):
   except Exception:
     return Response(status=401)
 
+
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def me(request):
-  serializer = MeSerializer(request.user)
+  serializer = MeSerializer(request.user, context={'request': request})
+  return Response(serializer.data)
+
+
+@api_view(['PATCH'])
+@permission_classes([IsAuthenticated])
+def update_avatar(request):
+  profile = request.user.profile
+  old_avatar = profile.avatar
+
+  serializer = ProfileSerializer(
+    request.user.profile,
+    data=request.data,
+    partial=True,
+    context={'request': request}
+  )
+
+  serializer.is_valid(raise_exception=True)
+  serializer.save()
+
+  if old_avatar:
+    old_avatar.delete(save=False)
+
   return Response(serializer.data)
 
 

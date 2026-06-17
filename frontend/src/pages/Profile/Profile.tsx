@@ -7,12 +7,14 @@ import HistoryIcon from '@/shared/assets/icons/profile/history.svg?react';
 import SupportIcon from '@/shared/assets/icons/profile/support.svg?react';
 import FavoritesIcon from '@/shared/assets/icons/profile/favorites.svg?react';
 import NotificationsIcon from '@/shared/assets/icons/profile/notifications.svg?react';
-import styles from './Profile.module.scss';
 import Footer from "@/widgets/Footer";
 import Header from "@/widgets/Header";
+import styles from './Profile.module.scss';
+
+const url = import.meta.env.VITE_API_URL;
 
 const Profile = () => {
-  const {user, logout, loading} = useAuth()
+  const {user, logout, loading, fetchMe} = useAuth()
   const navigate = useNavigate()
   const fileInputRef = useRef<HTMLInputElement>(null)
 
@@ -20,12 +22,36 @@ const Profile = () => {
     fileInputRef.current?.click()
   }
 
-  const handleAvatarChange = (
+  const handleAvatarChange = async (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     const file = event.target.files?.[0]
 
     if (!file) return
+
+    try {
+      const formData = new FormData();
+
+      formData.append('avatar', file)
+
+      const response = await fetch(
+        `${url}/api/profile/avatar/`,
+        {
+          method: 'PATCH',
+          credentials: 'include',
+          body: formData,
+        }
+      )
+
+      if (!response.ok) {
+        throw new Error('Avatar upload failed')
+      }
+
+
+      await fetchMe()
+    } catch (error) {
+      console.error(error)
+    }
 
     console.log(file)
   }
