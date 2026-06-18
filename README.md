@@ -51,7 +51,7 @@ npm install
 
 bash
 
-npm run dev
+npm run dev -- --host 127.0.0.1
 
 Сервер буде доступний за адресою:
 
